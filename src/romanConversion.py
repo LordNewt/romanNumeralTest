@@ -1,4 +1,8 @@
 class RomanConversion():
 
     def toRomanNumeral(self, input):
-        return "I"
+        outputStr = ''
+        while input > 0:
+            outputStr += 'I'
+            input -= 1
+        return outputStr
