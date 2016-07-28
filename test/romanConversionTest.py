@@ -6,7 +6,10 @@ class RomanConversionTest(unittest.TestCase):
         self.converter = RomanConversion()
 
     def test_one_to_numeral(self):
-        self.assertEqual("I", self.converter.toRomanNumeral(1))
+        self.assertEqual('I', self.converter.toRomanNumeral(1))
 
     def test_two_to_numeral(self):
-        self.assertEqual("II", self.converter.toRomanNumeral(2))
+        self.assertEqual('II', self.converter.toRomanNumeral(2))
+
+    def test_five_to_numeral(self):
+        self.assertEqual('V', self.converter.toRomanNumeral(5))
