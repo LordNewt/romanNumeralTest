@@ -13,3 +13,18 @@ class RomanConversionTest(unittest.TestCase):
 
     def test_five_to_numeral(self):
         self.assertEqual('V', self.converter.toRomanNumeral(5))
+
+    def test_ten_to_numeral(self):
+        self.assertEqual('X', self.converter.toRomanNumeral(10))
+
+    def test_fifty_to_numeral(self):
+        self.assertEqual('L', self.converter.toRomanNumeral(50))
+
+    def test_one_hundred_to_numeral(self):
+        self.assertEqual('C', self.converter.toRomanNumeral(100))
+
+    def test_five_hundred_to_numeral(self):
+        self.assertEqual('D', self.converter.toRomanNumeral(500))
+
+    def test_one_thousand_to_numeral(self):
+        self.assertEqual('M', self.converter.toRomanNumeral(1000))
