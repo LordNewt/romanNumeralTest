@@ -29,6 +29,9 @@ class DecimalConversionTest(unittest.TestCase):
     def test_m_to_number(self):
         self.assertEqual(1000, self.converter.toDecimalValue('M'))
 
+    def test_invalid_returns_negative_one(self):
+        self.assertEqual(-1, self.converter.toDecimalValue('R'))
+
     #
     # Multiple digit tests
     #
