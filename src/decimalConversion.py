@@ -1,13 +1,13 @@
 class DecimalConversion():
 
     decimalValues = {
-        'M': { 'value': 1000, 'reductor': 'C' },
-        'D': { 'value': 500, 'reductor': 'C' },
-        'C': { 'value': 100, 'reductor': 'X' },
-        'L': { 'value': 50, 'reductor': 'X' },
-        'X': { 'value': 10, 'reductor': 'I' },
-        'V': { 'value': 5, 'reductor': 'I' },
-        'I': { 'value': 1 }
+        'M': { 'value': 1000, 'repeats': 3, 'reductor': 'C' },
+        'D': { 'value': 500, 'repeats': 0, 'reductor': 'C' },
+        'C': { 'value': 100, 'repeats': 3, 'reductor': 'X' },
+        'L': { 'value': 50, 'repeats': 0, 'reductor': 'X' },
+        'X': { 'value': 10, 'repeats': 3, 'reductor': 'I' },
+        'V': { 'value': 5, 'repeats': 0, 'reductor': 'I' },
+        'I': { 'value': 1, 'repeats': 3 }
     }
 
     def toDecimalValue(self, input):
@@ -34,7 +34,7 @@ class DecimalConversion():
             # Make sure the maximum iteration limit hasn't been exceeded
             if numeral == last_numeral:
                 repeats += 1
-                if repeats >= 3:
+                if repeats >= self.decimalValues[numeral]['repeats']:
                     print('Too many of {0} numeral in a row, invalid'.format(numeral))
                     return -1
             else:
