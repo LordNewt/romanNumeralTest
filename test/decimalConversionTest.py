@@ -46,3 +46,6 @@ class DecimalConversionTest(unittest.TestCase):
     #
     def test_iv_to_number(self):
         self.assertEqual(4, self.converter.toDecimalValue('IV'))
+
+    def test_ic_is_invalid(self):
+        self.assertEqual(-1, self.converter.toDecimalValue('IC'))
