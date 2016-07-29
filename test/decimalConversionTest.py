@@ -47,6 +47,9 @@ class DecimalConversionTest(unittest.TestCase):
     def test_iiii_is_invalid(self):
         self.assertEqual(-1, self.converter.toDecimalValue('IIII'))
 
+    def test_vv_is_invalid(self):
+        self.assertEqual(-1, self.converter.toDecimalValue('VV'))
+
     #
     # Reduction-numeral tests
     #
