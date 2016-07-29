@@ -17,6 +17,10 @@ class DecimalConversion():
         total = 0
         # Set the initial "read" position in the character list to zero
         position = 0
+        # A numeral can't be legal if it has more than 3 of the same character
+        # in a row, so keep track of how many have been done
+        repeats = 0
+        last_numeral = ''
 
         # Iterate over the numerals in the list until no more remain
         while position < len(input_list):
@@ -25,8 +29,17 @@ class DecimalConversion():
             if not numeral in self.decimalValues:
                 # Unknown letter - print it and return
                 print('Invalid character: {0}'.format(numeral))
-                total = -1
-                break
+                return -1
+
+            # Make sure the maximum iteration limit hasn't been exceeded
+            if numeral == last_numeral:
+                repeats += 1
+                if repeats >= 3:
+                    print('Too many of {0} numeral in a row, invalid'.format(numeral))
+                    return -1
+            else:
+                repeats = 0
+            last_numeral = numeral
 
             # Next check if this is a "reduce by" numeral (like the I in IV)
             if position < len(input_list)-1:
@@ -35,8 +48,7 @@ class DecimalConversion():
                     # It IS a "reduce by" numeral. Check if it's a valid option
                     if numeral != self.decimalValues[next_numeral]['reductor']:
                         print('Invalid reductor numeral {0} for {1}'.format(numeral, next_numeral))
-                        total = -1
-                        break
+                        return -1
                     total -= self.decimalValues[numeral]['value']
                     # Then move forward to the next numeral, since this one is done
                     position += 1
