@@ -40,3 +40,9 @@ class DecimalConversionTest(unittest.TestCase):
 
     def test_lots_of_numerals_to_number(self):
         self.assertEqual(2318, self.converter.toDecimalValue('MMCCCXVIII'))
+
+    #
+    # Reduction-numeral tests
+    #
+    def test_iv_to_number(self):
+        self.assertEqual(4, self.converter.toDecimalValue('IV'))
