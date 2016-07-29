@@ -14,16 +14,23 @@ class DecimalConversion():
         # Break the input into a character list that we can parse through
         input_list = list(input.upper())
         # Set the output value, the decimal value of the numerals, to zero
-        output = 0
+        total = 0
         # Set the initial "read" position in the character list to zero
         position = 0
 
         # Iterate over the numerals in the list until no more remain
         while position < len(input_list):
+            # Check validity of the numeral
             if not input_list[position] in self.decimalValues:
+                # Unknown letter - print it and return
                 print('Invalid character: {0}'.format(input_list[position]))
                 output = -1
                 break
-            output += self.decimalValues[input_list[position]]
+            # All valid, so add to output
+            total += self.decimalValues[input_list[position]]
+
+            # Always end an iteration by incrementing position
             position += 1
-        return output
+
+        # Return the total
+        return total
