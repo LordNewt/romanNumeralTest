@@ -1,13 +1,13 @@
 class DecimalConversion():
 
     decimalValues = {
-        'M': 1000,
-        'D': 500,
-        'C': 100,
-        'L': 50,
-        'X': 10,
-        'V': 5,
-        'I': 1
+        'M': { 'value': 1000, 'reductor': 'C' },
+        'D': { 'value': 500, 'reductor': 'C' },
+        'C': { 'value': 100, 'reductor': 'X' },
+        'L': { 'value': 50, 'reductor': 'X' },
+        'X': { 'value': 10, 'reductor': 'I' },
+        'V': { 'value': 5, 'reductor': 'I' },
+        'I': { 'value': 1 }
     }
 
     def toDecimalValue(self, input):
@@ -31,15 +31,19 @@ class DecimalConversion():
             # Next check if this is a "reduce by" numeral (like the I in IV)
             if position < len(input_list)-1:
                 next_numeral = input_list[(position+1)]
-                if self.decimalValues[numeral] < self.decimalValues[next_numeral]:
-                    # It IS a "reduce by" numeral, so reduce by that much instead
-                    total -= self.decimalValues[numeral]
+                if self.decimalValues[numeral]['value'] < self.decimalValues[next_numeral]['value']:
+                    # It IS a "reduce by" numeral. Check if it's a valid option
+                    if numeral != self.decimalValues[next_numeral]['reductor']:
+                        print('Invalid reductor numeral {0} for {1}'.format(numeral, next_numeral))
+                        total = -1
+                        break
+                    total -= self.decimalValues[numeral]['value']
                     # Then move forward to the next numeral, since this one is done
                     position += 1
                     numeral = input_list[position]
 
             # Add the value of the numeral to the total
-            total += self.decimalValues[numeral]
+            total += self.decimalValues[numeral]['value']
 
             # Always end an iteration by incrementing position
             position += 1
