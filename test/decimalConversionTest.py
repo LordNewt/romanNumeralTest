@@ -70,3 +70,6 @@ class DecimalConversionTest(unittest.TestCase):
 
     def test_ixc_is_invalid(self):
         self.assertEqual(-1, self.converter.toDecimalValue('IXC'))
+
+    def test_illegal_letter_after_legal_is_invalid(self):
+        self.assertEqual(-1, self.converter.toDecimalValue('IEI'))
