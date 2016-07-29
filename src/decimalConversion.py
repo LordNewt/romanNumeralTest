@@ -52,6 +52,13 @@ class DecimalConversion():
                     if repeats:
                         print('Illegal format, cannot repeat reduction digits')
                         return -1
+                    if position < len(input_list)-2:
+                        # A little more complex check: having two VALID "reduce by" numerals
+                        # in a row is still invalid (i.e. IXC)
+                        two_ahead_numeral = input_list[(position+2)]
+                        if self.decimalValues[next_numeral]['value'] < self.decimalValues[two_ahead_numeral]['value']:
+                            print('Illegal format, cannot have two reduce-by digits in a row')
+                            return -1
                     total -= self.decimalValues[numeral]['value']
                     # Then move forward to the next numeral, since this one is done
                     position += 1
