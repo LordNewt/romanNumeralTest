@@ -37,3 +37,6 @@ class RomanConversionTest(unittest.TestCase):
     #
     def test_four_to_numeral(self):
         self.assertEqual('IV', self.converter.toRomanNumeral(4))
+
+    def test_nine_to_numeral(self):
+        self.assertEqual('IX', self.converter.toRomanNumeral(9))
