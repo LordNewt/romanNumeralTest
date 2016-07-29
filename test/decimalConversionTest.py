@@ -49,3 +49,9 @@ class DecimalConversionTest(unittest.TestCase):
 
     def test_ic_is_invalid(self):
         self.assertEqual(-1, self.converter.toDecimalValue('IC'))
+
+    def test_im_is_invalid(self):
+        self.assertEqual(-1, self.converter.toDecimalValue('IM'))
+
+    def test_xm_is_invalid(self):
+        self.assertEqual(-1, self.converter.toDecimalValue('XM'))
