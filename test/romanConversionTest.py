@@ -64,3 +64,10 @@ class RomanConversionTest(unittest.TestCase):
     #
     def test_max_minus_digits_to_numeral(self):
         self.assertEqual('CMXCIX', self.converter.toRomanNumeral(999))
+
+
+    #
+    # Complexity test
+    #
+    def test_with_reductors_and_multiples(self):
+        self.assertEqual('MCMXXXIV', self.converter.toRomanNumeral(1934))
