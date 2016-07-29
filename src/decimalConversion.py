@@ -10,6 +10,16 @@ class DecimalConversion():
         'I': { 'value': 1, 'repeats': 3 }
     }
 
+    #
+    #   Convenience method for checking for a valid numeral
+    #
+    def isValidNumeral(self, numeral):
+        if not numeral in self.decimalValues:
+            # Unknown letter - print it and return False
+            print('Invalid character: {0}'.format(numeral))
+            return False
+        return True
+
     def toDecimalValue(self, input):
         # Break the input into a character list that we can parse through
         input_list = list(input.upper())
@@ -26,9 +36,7 @@ class DecimalConversion():
         while position < len(input_list):
             # Check validity of the numeral
             numeral = input_list[position]
-            if not numeral in self.decimalValues:
-                # Unknown letter - print it and return
-                print('Invalid character: {0}'.format(numeral))
+            if not self.isValidNumeral(numeral):
                 return -1
 
             # Make sure the maximum iteration limit hasn't been exceeded
@@ -44,6 +52,8 @@ class DecimalConversion():
             # Next check if this is a "reduce by" numeral (like the I in IV)
             if position < len(input_list)-1:
                 next_numeral = input_list[(position+1)]
+                if not self.isValidNumeral(next_numeral):
+                    return -1
                 if self.decimalValues[numeral]['value'] < self.decimalValues[next_numeral]['value']:
                     # It IS a "reduce by" numeral. Check if it's a valid option
                     if numeral != self.decimalValues[next_numeral]['reductor']:
@@ -56,6 +66,8 @@ class DecimalConversion():
                         # A little more complex check: having two VALID "reduce by" numerals
                         # in a row is still invalid (i.e. IXC)
                         two_ahead_numeral = input_list[(position+2)]
+                        if not self.isValidNumeral(next_numeral):
+                            return -1
                         if self.decimalValues[next_numeral]['value'] < self.decimalValues[two_ahead_numeral]['value']:
                             print('Illegal format, cannot have two reduce-by digits in a row')
                             return -1
