@@ -20,6 +20,10 @@ class DecimalConversion():
 
         # Iterate over the numerals in the list until no more remain
         while position < len(input_list):
+            if not input_list[position] in self.decimalValues:
+                print('Invalid character: {0}'.format(input_list[position]))
+                output = -1
+                break
             output += self.decimalValues[input_list[position]]
             position += 1
         return output
