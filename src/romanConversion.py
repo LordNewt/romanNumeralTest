@@ -3,10 +3,10 @@ class RomanConversion():
     # Set up a map with the numeric value of each roman numeral. Listed
     # in descending value order.
     numeralValues = {
-        1000: { 'numeral': 'M'},
-        500: { 'numeral': 'D'},
-        100: { 'numeral': 'C'},
-        50: { 'numeral': 'L'},
+        1000: { 'numeral': 'M', 'reductor': 100 },
+        500: { 'numeral': 'D', 'reductor': 100 },
+        100: { 'numeral': 'C', 'reductor': 10 },
+        50: { 'numeral': 'L', 'reductor': 10 },
         10: { 'numeral': 'X', 'reductor': 1 },
         5: { 'numeral': 'V', 'reductor': 1},
         1: { 'numeral': 'I'}
