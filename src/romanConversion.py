@@ -7,7 +7,7 @@ class RomanConversion():
         500: { 'numeral': 'D'},
         100: { 'numeral': 'C'},
         50: { 'numeral': 'L'},
-        10: { 'numeral': 'X' },
+        10: { 'numeral': 'X', 'reductor': 1 },
         5: { 'numeral': 'V', 'reductor': 1},
         1: { 'numeral': 'I'}
     }
