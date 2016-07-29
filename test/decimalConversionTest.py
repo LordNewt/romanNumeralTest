@@ -37,3 +37,6 @@ class DecimalConversionTest(unittest.TestCase):
     #
     def test_ii_to_number(self):
         self.assertEqual(2, self.converter.toDecimalValue('II'))
+
+    def test_lots_of_numerals_to_number(self):
+        self.assertEqual(2318, self.converter.toDecimalValue('MMCCCXVIII'))
