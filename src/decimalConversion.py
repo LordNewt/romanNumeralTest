@@ -49,6 +49,9 @@ class DecimalConversion():
                     if numeral != self.decimalValues[next_numeral]['reductor']:
                         print('Invalid reductor numeral {0} for {1}'.format(numeral, next_numeral))
                         return -1
+                    if repeats:
+                        print('Illegal format, cannot repeat reduction digits')
+                        return -1
                     total -= self.decimalValues[numeral]['value']
                     # Then move forward to the next numeral, since this one is done
                     position += 1
