@@ -64,3 +64,6 @@ class DecimalConversionTest(unittest.TestCase):
 
     def test_xm_is_invalid(self):
         self.assertEqual(-1, self.converter.toDecimalValue('XM'))
+
+    def test_iiv_is_invalid(self):
+        self.assertEqual(-1, self.converter.toDecimalValue('IIV'))
