@@ -42,6 +42,12 @@ class DecimalConversionTest(unittest.TestCase):
         self.assertEqual(2318, self.converter.toDecimalValue('MMCCCXVIII'))
 
     #
+    # Continuous digit tests
+    #
+    def test_iiii_is_invalid(self):
+        self.assertEqual(-1, self.converter.toDecimalValue('IIII'))
+
+    #
     # Reduction-numeral tests
     #
     def test_iv_to_number(self):
