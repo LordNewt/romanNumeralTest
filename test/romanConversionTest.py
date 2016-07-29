@@ -58,3 +58,9 @@ class RomanConversionTest(unittest.TestCase):
 
     def test_nine_hundred_to_numeral(self):
         self.assertEqual('CM', self.converter.toRomanNumeral(900))
+
+    #
+    # Max multi-digit "minus" test
+    #
+    def test_max_minus_digits_to_numeral(self):
+        self.assertEqual('CMXCIX', self.converter.toRomanNumeral(999))
