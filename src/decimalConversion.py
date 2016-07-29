@@ -27,7 +27,18 @@ class DecimalConversion():
                 print('Invalid character: {0}'.format(numeral))
                 total = -1
                 break
-            # All valid, so add to output
+
+            # Next check if this is a "reduce by" numeral (like the I in IV)
+            if position < len(input_list)-1:
+                next_numeral = input_list[(position+1)]
+                if self.decimalValues[numeral] < self.decimalValues[next_numeral]:
+                    # It IS a "reduce by" numeral, so reduce by that much instead
+                    total -= self.decimalValues[numeral]
+                    # Then move forward to the next numeral, since this one is done
+                    position += 1
+                    numeral = input_list[position]
+
+            # Add the value of the numeral to the total
             total += self.decimalValues[numeral]
 
             # Always end an iteration by incrementing position
