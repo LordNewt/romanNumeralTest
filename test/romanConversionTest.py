@@ -33,6 +33,12 @@ class RomanConversionTest(unittest.TestCase):
         self.assertEqual('M', self.converter.toRomanNumeral(1000))
 
     #
+    # Multi-digit test
+    #
+    def test_max_digits_to_numeral(self):
+        self.assertEqual('MDCLXVI', self.converter.toRomanNumeral(1666))
+
+    #
     # "Minus 1" tests
     #
     def test_four_to_numeral(self):
