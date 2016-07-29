@@ -5,6 +5,9 @@ class RomanConversionTest(unittest.TestCase):
     def setUp(self):
         self.converter = RomanConversion()
 
+    #
+    # Basic digit tests
+    #
     def test_one_to_numeral(self):
         self.assertEqual('I', self.converter.toRomanNumeral(1))
 
@@ -28,3 +31,9 @@ class RomanConversionTest(unittest.TestCase):
 
     def test_one_thousand_to_numeral(self):
         self.assertEqual('M', self.converter.toRomanNumeral(1000))
+
+    #
+    # "Minus 1" tests
+    #
+    def test_four_to_numeral(self):
+        self.assertEqual('IV', self.converter.toRomanNumeral(4))
