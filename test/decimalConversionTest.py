@@ -28,3 +28,9 @@ class DecimalConversionTest(unittest.TestCase):
 
     def test_m_to_number(self):
         self.assertEqual(1000, self.converter.toDecimalValue('M'))
+
+    #
+    # Multiple digit tests
+    #
+    def test_ii_to_number(self):
+        self.assertEqual(2, self.converter.toDecimalValue('II'))
