@@ -21,13 +21,14 @@ class DecimalConversion():
         # Iterate over the numerals in the list until no more remain
         while position < len(input_list):
             # Check validity of the numeral
-            if not input_list[position] in self.decimalValues:
+            numeral = input_list[position]
+            if not numeral in self.decimalValues:
                 # Unknown letter - print it and return
-                print('Invalid character: {0}'.format(input_list[position]))
-                output = -1
+                print('Invalid character: {0}'.format(numeral))
+                total = -1
                 break
             # All valid, so add to output
-            total += self.decimalValues[input_list[position]]
+            total += self.decimalValues[numeral]
 
             # Always end an iteration by incrementing position
             position += 1
