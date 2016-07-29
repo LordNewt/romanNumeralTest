@@ -46,3 +46,15 @@ class RomanConversionTest(unittest.TestCase):
 
     def test_nine_to_numeral(self):
         self.assertEqual('IX', self.converter.toRomanNumeral(9))
+
+    def test_forty_to_numeral(self):
+        self.assertEqual('XL', self.converter.toRomanNumeral(40))
+
+    def test_ninety_to_numeral(self):
+        self.assertEqual('XC', self.converter.toRomanNumeral(90))
+
+    def test_four_hundred_to_numeral(self):
+        self.assertEqual('CD', self.converter.toRomanNumeral(400))
+
+    def test_nine_hundred_to_numeral(self):
+        self.assertEqual('CM', self.converter.toRomanNumeral(900))
